@@ -1,0 +1,18 @@
+
+version: '3.8'
+
+services:
+  app:
+    build: ./backend
+    ports:
+      - '5000:5000'
+    env_file:
+      - ./backend/.env
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: yourusername
+      POSTGRES_PASSWORD: yourpassword
+      POSTGRES_DB: personal_ai_db
+    ports:
+      - '5432:5432'
